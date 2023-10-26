@@ -1,0 +1,32 @@
+{
+  "name": "pumpkin-carver",
+  "type": "module",
+  "scripts": {
+    "dev": "solid-start dev",
+    "build": "solid-start build",
+    "start": "solid-start start",
+    "lint": "prettier . --write"
+  },
+  "devDependencies": {
+    "@types/node": "20.8.7",
+    "@types/three": "0.157.2",
+    "autoprefixer": "10.4.16",
+    "esbuild": "0.19.5",
+    "postcss": "8.4.31",
+    "prettier": "3.0.3",
+    "prettier-plugin-organize-imports": "3.2.3",
+    "prettier-plugin-tailwindcss": "0.5.6",
+    "solid-start-node": "0.3.7",
+    "tailwindcss": "3.3.3",
+    "typescript": "5.2.2",
+    "vite": "4.5.0"
+  },
+  "dependencies": {
+    "@solidjs/meta": "0.28.6",
+    "@solidjs/router": "0.8.3",
+    "solid-js": "1.8.3",
+    "solid-start": "0.3.7",
+    "solid-start-vercel": "0.3.7",
+    "three": "0.157.0"
+  }
+}
