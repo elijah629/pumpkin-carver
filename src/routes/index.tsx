@@ -63,17 +63,17 @@ export default function Carver() {
 		};
 
 		{
-			const mouse = new THREE.Vector2();
+			const pointer = new THREE.Vector2();
 			const raycaster = new THREE.Raycaster();
 
-			const on_mousemove = (e: MouseEvent) => {
+			const on_pointermove = (e: PointerEvent) => {
 				let canvasBounds = canvas.getBoundingClientRect();
-				mouse.x =
+				pointer.x =
 					((e.clientX - canvasBounds.left) /
 						(canvasBounds.right - canvasBounds.left)) *
 						2 -
 					1;
-				mouse.y =
+				pointer.y =
 					-(
 						(e.clientY - canvasBounds.top) /
 						(canvasBounds.bottom - canvasBounds.top)
@@ -85,14 +85,14 @@ export default function Carver() {
 					return;
 				}
 
-				raycaster.setFromCamera(mouse, camera);
+				raycaster.setFromCamera(pointer, camera);
 				const hit = raycaster.intersectObject(pumpkin!.children[0]);
 
 				if (hit.length === 0) {
 					return;
 				}
 
-				// If mouse is released or not above pumpkin
+				// If pointer is released or not above pumpkin
 				if (controls.enabled) {
 					return;
 				}
@@ -104,8 +104,8 @@ export default function Carver() {
 				);
 			};
 
-			const on_mousedown = () => {
-				raycaster.setFromCamera(mouse, camera);
+			const on_pointerdown = () => {
+				raycaster.setFromCamera(pointer, camera);
 
 				const intersects = raycaster.intersectObjects(
 					pumpkin!.children
@@ -113,20 +113,20 @@ export default function Carver() {
 				controls.enabled = intersects.length === 0;
 			};
 
-			const on_mouseup = () => {
+			const on_pointerup = () => {
 				controls.enabled = true;
 			};
 
 			window.addEventListener("resize", on_resize);
-			window.addEventListener("mousedown", on_mousedown);
-			window.addEventListener("mouseup", on_mouseup);
-			window.addEventListener("mousemove", on_mousemove);
+			window.addEventListener("pointerdown", on_pointerdown);
+			window.addEventListener("pointerup", on_pointerup);
+			window.addEventListener("pointermove", on_pointermove);
 
 			onCleanup(() => {
 				window.removeEventListener("resize", on_resize);
-				window.removeEventListener("mousedown", on_mousedown);
-				window.removeEventListener("mouseup", on_mouseup);
-				window.removeEventListener("mousemove", on_mousemove);
+				window.removeEventListener("pointerdown", on_pointerdown);
+				window.removeEventListener("pointerup", on_pointerup);
+				window.removeEventListener("pointermove", on_pointermove);
 			});
 		}
 
