@@ -17,9 +17,7 @@ export default function Root() {
 	return (
 		<Html lang="en">
 			<Head>
-				<Title>
-						Pumpkin Carver
-				</Title>
+				<Title>Pumpkin Carver</Title>
 
 				<Meta charset="utf-8" />
 
