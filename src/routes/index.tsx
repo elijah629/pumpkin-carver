@@ -177,7 +177,7 @@ export default function Carver() {
 	return (
 		<>
 			<div class="absolute flex w-full items-center justify-center gap-2 text-white">
-				<div class="flex items-center gap-1">
+				<div class="flex items-center gap-1 flex-wrap">
 					<label for="size">Size</label>
 					<input
 						id="size"
